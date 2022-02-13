@@ -37,7 +37,7 @@ class Categorie(db.Model):
 
 
 
-
+#Définition de la classe livre
 class Livre(db.Model):
     __tablename__='livres'
     id=db.Column(db.Integer,primary_key=True)
@@ -96,7 +96,8 @@ def get_one_book(id):
         else:
             return jsonify({
             'success':True,
-            'livre demandé ':livre.livre_format()
+            'livre demandé ':livre.livre_format(),
+            'id demandé': id
             })
     except :
         abort(400)
@@ -115,7 +116,7 @@ def one_category_books(id):
             return jsonify({
             'Categorie_id':id,
             'Nom categorie':nom_cat,
-            'Livres':livres_cat_format,
+            'Livres de la catégorie':livres_cat_format,
             'Total_livre_categorie':livres_cat.count()
             })
 
@@ -134,6 +135,7 @@ def get_one_category(id):
             return jsonify({
             'Success':True,
             'Categorie':categorie.categorie_format(),
+            'Id de la catégorie listée':id
 
             })
     except :
@@ -172,7 +174,7 @@ def get_all_categories():
         return jsonify({
         'Success':True,
         'Categories':categories_format,
-        'Total':Categorie.query.count()
+        'Total catégories':Categorie.query.count()
         })
 
 ##Supprimer un livre
@@ -203,7 +205,7 @@ def delete_one_categories(id):
             return jsonify({
             'Success':True,
             'Categorie supprimé':categorie.categorie_format(),
-            'Total':Categorie.query.count()
+            'Total catégorie ':Categorie.query.count()
 
             })
 
@@ -252,13 +254,19 @@ def create_book():
     auteur=donnees.get('auteur',None)
     editeur=donnees.get("editeur",None)
     cat=donnees.get("categorie",None)
+
     livre=Livre(isbn=isbn,titre=titre,date_publication=date,auteur=auteur,editeur=editeur,categorie_id=cat)
-    livre.inserer_livre()
-    return jsonify({
-    "success": True,
-    "Nouveau livre " :livre.livre_format(),
-    "Total":Livre.query.count()
-    })
+    if livre.isbn is None or livre.titre is None or livre.auteur is None or livre.editeur is None or livre.date_publication is None or livre.categorie_id is None :
+        abort(400)
+    else:
+        livre.inserer_livre()
+        return jsonify({
+        "success": True,
+        "Nouveau livre " :livre.livre_format(),
+        "Total":Livre.query.count()
+        })
+
+    
 
 @app.route('/categories',methods=['POST'])
 def add_categories():
