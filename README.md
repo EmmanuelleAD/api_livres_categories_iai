@@ -98,7 +98,10 @@ EXEMPLE: curl http://localhost:5000/livres
     "succes": true,
     "total": 4
 }
-.##GET/livres(livre_id) GENERAL: Cet endpoint permet de récupérer les informations d'un livre particulier s'il existe par le biais de l'ID.
+
+
+.##GET/livres(livre_id) 
+GENERAL: Cet endpoint permet de récupérer les informations d'un livre particulier s'il existe par le biais de l'ID.
 
 EXEMPLE: http://localhost:5000/livres/19
 {
@@ -139,7 +142,7 @@ GENERAL:
 
    
 
-. ##PATCH/livre(livre_id) GENERAL: Cet endpoint permet de mettre à jour, le titre, l'auteur, et l'éditeur du livre. Il retourne un livre mis à jour.
+. ##PATCH/livres(livre_id) GENERAL: Cet endpoint permet de mettre à jour, le titre, l'auteur, et l'éditeur du livre. Il retourne un livre mis à jour.
 
 EXEMPLE  curl -X PATCH http://localhost:5000/livres/21
 
@@ -190,6 +193,7 @@ EXEMPLE  curl -X PATCH http://localhost:5000/livres/21
     "Success": true,
     "Total catégories": 5
 }
+
 
 .##GET/categories(categorie_id) GENERAL: Cet endpoint permet de récupérer les informations d'une categorie si elle existe par le biais de l'ID.
 
