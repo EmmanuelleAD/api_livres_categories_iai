@@ -101,6 +101,8 @@ EXEMPLE: curl http://localhost:5000/livres
 
 
 .##GET/livres(livre_id) 
+
+
 GENERAL: Cet endpoint permet de récupérer les informations d'un livre particulier s'il existe par le biais de l'ID.
 
 EXEMPLE: curl  http://localhost:5000/livres/19
@@ -144,7 +146,9 @@ GENERAL:
 
    
 
-. ##PATCH/livres(livre_id) GENERAL: Cet endpoint permet de mettre à jour, le titre, l'auteur, et l'éditeur du livre. Il retourne un livre mis à jour.
+. ##PATCH/livres(livre_id)
+
+GENERAL: Cet endpoint permet de mettre à jour, le titre, l'auteur, et l'éditeur du livre. Il retourne un livre mis à jour.
 
 EXEMPLE  curl -X PATCH http://localhost:5000/livres/21
 
@@ -197,7 +201,9 @@ EXEMPLE  curl -X PATCH http://localhost:5000/livres/21
 }
 
 
-.##GET/categories(categorie_id) GENERAL: Cet endpoint permet de récupérer les informations d'une categorie si elle existe par le biais de l'ID.
+.##GET/categories(categorie_id)
+
+GENERAL: Cet endpoint permet de récupérer les informations d'une categorie si elle existe par le biais de l'ID.
 
 EXEMPLE: http://localhost:5000/categories/12
 
@@ -209,6 +215,8 @@ EXEMPLE: http://localhost:5000/categories/12
     "Id de la catégorie listée": 12,
     "Success": true
 }
+
+
 . ## DELETE/categories (categories_id)
 
 GENERAL:
@@ -224,6 +232,8 @@ GENERAL:
     "Total catégorie ": 5
 }
 
+
+
 . ##PATCH/categories(categorie_id) GENERAL: Cet endpoint permet de mettre à jour le libelle ou le nom de la categorie. Il retourne une nouvelle categorie avec la nouvelle valeur.
 
 EXEMPLE.....Avec Patch
@@ -238,6 +248,8 @@ EXEMPLE.....Avec Patch
  
 
 .##GET/categories(categorie_id)/livres
+
+
 GENERAL:
 Cet endpoint permet de lister les livres appartenant à une categorie donnée.
 Il renvoie la classe de la categorie et les livres l'appartenant.
