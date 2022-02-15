@@ -103,7 +103,7 @@ EXEMPLE: curl http://localhost:5000/livres
 .##GET/livres(livre_id) 
 GENERAL: Cet endpoint permet de récupérer les informations d'un livre particulier s'il existe par le biais de l'ID.
 
-EXEMPLE: http://localhost:5000/livres/19
+EXEMPLE: curl  http://localhost:5000/livres/19
 
 
 {
